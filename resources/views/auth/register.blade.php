@@ -54,9 +54,9 @@
 @extends('frontend.layouts.master')
 @section('content')
     <!--=============================
-        BREADCRUMB START
-    ==============================-->
-    <section class="fp__breadcrumb" style="background: url({{ asset('frontend/images/counter_bg.jpg')}});">
+            BREADCRUMB START
+        ==============================-->
+    <section class="fp__breadcrumb" style="background: url({{ asset('frontend/images/counter_bg.jpg') }});">
         <div class="fp__breadcrumb_overlay">
             <div class="container">
                 <div class="fp__breadcrumb_text">
@@ -70,13 +70,13 @@
         </div>
     </section>
     <!--=============================
-        BREADCRUMB END
-    ==============================-->
+            BREADCRUMB END
+        ==============================-->
 
 
     <!--=========================
-        SIGN UP START
-    ==========================-->
+            SIGN UP START
+        ==========================-->
     <section class="fp__signup" style="background: url({{ asset('frontend/images/login_bg.jpg') }});">
         <div class="fp__signup_overlay pt_125 xs_pt_95 pb_100 xs_pb_70">
             <div class=" container">
@@ -91,14 +91,16 @@
                                     <div class="col-xl-12">
                                         <div class="fp__login_imput">
                                             <label>name</label>
-                                            <input type="text" placeholder="Name" name="name" value="{{ old('name') }}">
+                                            <input type="text" placeholder="Name" name="name"
+                                                value="{{ old('name') }}">
                                         </div>
                                     </div>
 
                                     <div class="col-xl-12">
                                         <div class="fp__login_imput">
                                             <label>email</label>
-                                            <input type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+                                            <input type="email" name="email" placeholder="Email"
+                                                value="{{ old('email') }}">
                                         </div>
                                     </div>
 
@@ -112,7 +114,8 @@
                                     <div class="col-xl-12">
                                         <div class="fp__login_imput">
                                             <label>confirm password</label>
-                                            <input type="password" name="password_confirmation" placeholder="Confirm Password">
+                                            <input type="password" name="password_confirmation"
+                                                placeholder="Confirm Password">
                                         </div>
                                     </div>
 
@@ -134,7 +137,6 @@
         </div>
     </section>
     <!--=========================
-        SIGN UP END
-    ==========================-->
-
+            SIGN UP END
+        ==========================-->
 @endsection

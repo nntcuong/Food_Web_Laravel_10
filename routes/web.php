@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Frontend\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,17 +17,20 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('admin/login',[AdminAuthController::class,'index'])->name('login');
-Route::get('/',[FrontendController::class,'index'])->name('home');
+Route::group(['middleware'=>'guest'],function(){
+    Route::get('admin/login',[AdminAuthController::class,'index'])->name('login');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::group(['middleware'=>'auth'],function(){
+
+    Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
+    Route::put('profile',[ProfileController::class,'updateProfile'])->name('profile.update');
+    Route::put('profile/password',[ProfileController::class,'updatePassword'])->name('profile.password.update');
+
+    Route::post('profile/avatar',[ProfileController::class,'updateAvatar'])->name('profile.avatar.update');
+
+});
+Route::get('/',[FrontendController::class,'index'])->name('home');
 
 require __DIR__.'/auth.php';

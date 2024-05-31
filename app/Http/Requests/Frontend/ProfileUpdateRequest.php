@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Frontend;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,15 +22,8 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-             'avatar' => ['nullable', 'image'],
-            'name' => ['required', 'max:50'],
-            'email' => ['required', 'email', 'max:200', 'unique:users,email,'.auth()->user()->id]
-        ];
-        
-    }
-    function messages() : array {
-        return [
-            'current_password.current_password' => 'Current Password is invalid!'
+            'name'=>['required','max:60'],
+            'email'=>['required','email','unique:users,email,'.auth()->user()->id]
         ];
     }
 }

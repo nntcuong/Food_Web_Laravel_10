@@ -26,4 +26,9 @@ class ProfilePasswordUpdateRequest extends FormRequest
             'password' => ['required', 'min:5', 'confirmed']
         ];
     }
+    function messages():array{
+        return[
+            'current_password.current_password' =>'Current Password is invalid'
+        ];
+    }
 }

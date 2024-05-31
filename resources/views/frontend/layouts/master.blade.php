@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+    <meta name="description" content="{{ config('settings.seo_description') }}">
+    <meta name="keywords" content="{{ config('settings.seo_keywords') }}">
+
+    @yield('og_metatag_section')
+
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>FoodPark || Restaurant Template</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="{{ asset('frontend/css/all.min.css') }}">
@@ -19,7 +25,7 @@
 
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
-    <!-- <link rel="stylesheet" href="css/rtl.css"> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -114,15 +120,22 @@
 
     <!--main/custom js-->
     <script src="{{ asset('frontend/js/main.js') }}"></script>
-       <!-- show dynamic validation message-->
+    <!-- show dynamic validation message-->
     <script>
-        toastr.options.progressBar=true;
-         @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    toastr.error("{{ $error }}")
-                @endforeach
-            @endif
+        
+        toastr.options.progressBar = true;
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                toastr.error("{{ $error }}")
+            @endforeach
+        @endif
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     </script>
+    @stack('scripts')
 
 </body>
 

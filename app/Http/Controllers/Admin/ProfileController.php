@@ -9,7 +9,7 @@ use App\Traits\FileUploadTrait;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 
 class ProfileController extends Controller
@@ -25,10 +25,10 @@ class ProfileController extends Controller
         $user = Auth::user();
 
         $imagePath = $this->uploadImage($request, 'avatar');
-
-       // dd($imagePath);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->avatar=isset($imagePath)?$imagePath:$user->avatar;
+
         $user->save();
         toastr(('Update Successfully'));
         return redirect()->back();
