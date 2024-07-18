@@ -4,14 +4,19 @@ namespace App\Http\Controllers\Admin;
 
 use App\DataTables\SliderDataTable;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\SliderCreateRequest;
+use App\Http\Requests\Admin\SliderUpdateRequest;
+use App\Traits\FileUploadTrait;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-
+use Illuminate\Http\RedirectResponse;
+use App\Models\Slider;
 class SliderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    use FileUploadTrait;
     public function index(SliderDataTable $dataTable)
     {
         return $dataTable->render('admin.slider.index');
@@ -28,9 +33,24 @@ class SliderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SliderCreateRequest $request)
     {
-        //
+      $imagePath=$this->uploadImage($request,'image');
+      $slider=new Slider();
+
+      $slider->image=$imagePath;
+      $slider->offer=$request->offer;
+      $slider->title=$request->title;
+
+      $slider->sub_title=$request->sub_title;
+      $slider->short_description=$request->short_description;
+      $slider->button_link=$request->button_link;
+      $slider->status=$request->status;
+      $slider->status=$request->status;
+      $slider->save();
+      toastr()->success('Created Successfully');
+      return to_route('admin.slider.index');
+
     }
 
     /**
@@ -44,17 +64,19 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id) : View
     {
-        //
+        $slider =Slider::findOrFail($id);
+
+        return view('admin.slider.edit',compact('slider'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(SliderUpdateRequest $request, string $id)
     {
-        //
+        $imagePath=$this->uploadImage($request,'image')
     }
 
     /**
