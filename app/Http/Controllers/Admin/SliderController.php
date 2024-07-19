@@ -76,7 +76,7 @@ class SliderController extends Controller
      */
     public function update(SliderUpdateRequest $request, string $id)
     {
-        $imagePath=$this->uploadImage($request,'image')
+        $imagePath=$this->uploadImage($request,'image');
     }
 
     /**
