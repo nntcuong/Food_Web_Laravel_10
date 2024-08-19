@@ -80,8 +80,11 @@
     <script src="{{ asset('admin/assets/modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
     <script src="{{ asset('admin/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
     <!-- Template JS File -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('admin/assets/js/scripts.js') }}"></script>
     <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
+   
+
 
 
 
@@ -106,7 +109,11 @@
             no_label: false, // Default: false
             success_callback: null // Default: null
         });
-
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $(document).ready(function() {
 
             $('body').on('click', '.delete-item', function(e) {
@@ -132,9 +139,7 @@
                             success: function(response) {
                                 if(response.status === 'success'){
                                     toastr.success(response.message)
-
                                     window.location.reload();
-
                                 }else if(response.status === 'error'){
                                     toastr.error(response.message)
                                 }
