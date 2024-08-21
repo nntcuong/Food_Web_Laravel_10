@@ -101,6 +101,7 @@ class SliderController extends Controller
     {
         try {
             $slider = Slider::findOrFail($id);
+            $this->remoteImage($slider->image);
             $slider->delete();
             return response(['status' => 'success', 'message' => 'Deleted Successfully']);
         } catch (\Exception $e) {
