@@ -31,15 +31,15 @@
                                 @method('PUT')
                                 <div class="form-group">
                                     <label for="">Top Title</label>
-                                    <input type="text" class="form-control" name="why_choose_top_title" value="{{ @$titles['why_choose_top_title'] }}">
+                                    {{-- <input type="text" class="form-control" name="why_choose_top_title" value="{{ @$titles['why_choose_top_title'] }}"> --}}
                                 </div>
                                 <div class="form-group">
                                     <label for="">Main Title</label>
-                                    <input type="text" class="form-control" name="why_choose_main_title" value="{{ @$titles['why_choose_main_title'] }}">
+                                    {{-- <input type="text" class="form-control" name="why_choose_main_title" value="{{ @$titles['why_choose_main_title'] }}"> --}}
                                 </div>
                                 <div class="form-group">
                                     <label for="">Sub Title</label>
-                                    <input type="text" class="form-control" name="why_choose_sub_title" value="{{ @$titles['why_choose_sub_title'] }}">
+                                    {{-- <input type="text" class="form-control" name="why_choose_sub_title" value="{{ @$titles['why_choose_sub_title'] }}"> --}}
                                 </div>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </form>
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <section class="section">
