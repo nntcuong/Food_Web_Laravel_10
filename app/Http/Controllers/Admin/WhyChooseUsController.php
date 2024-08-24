@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\DataTables\WhyChooseUsDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\SectionTitle;
 class WhyChooseUsController extends Controller
 {
     /**
@@ -14,7 +14,9 @@ class WhyChooseUsController extends Controller
     public function index(whyChooseUsDataTable $dataTable)
     {
      
-        return $dataTable->render('admin.why-choose-us.index');
+        $keys=['why_choose_top_title','title_choose_main_title','why_choose_sub_title'];
+        $titles=SectionTitle::whereIn('key',$keys)->pluck('value','value');
+        return $dataTable->render('admin.why-choose-us.index',compact('titles'));
     }
 
     /**
@@ -52,9 +54,9 @@ class WhyChooseUsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

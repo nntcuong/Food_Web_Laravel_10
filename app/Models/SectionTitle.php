@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class SectionTitle extends Model
 {
     use HasFactory;
+    protected $fillable=['key','value'];
 }
