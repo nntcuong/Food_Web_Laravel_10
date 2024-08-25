@@ -54,11 +54,37 @@ class WhyChooseUsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request, string $id)
     {
-        dd($request->all());
+        //
     }
+    public function updateTitle(Request $request)
+    {
+        $request->validate([
+            'why_choose_top_title' => ['max:100'],
+            'why_choose_main_title' => ['max:200'],
+            'why_choose_sub_title' => ['max:500']
+        ]);
 
+        SectionTitle::updateOrCreate(
+            ['key' => 'why_choose_top_title'],
+            ['value' => $request->why_choose_top_title]
+        );
+
+        SectionTitle::updateOrCreate(
+            ['key' => 'why_choose_main_title'],
+            ['value' => $request->why_choose_main_title]
+        );
+
+        SectionTitle::updateOrCreate(
+            ['key' => 'why_choose_sub_title'],
+            ['value' => $request->why_choose_sub_title]
+        );
+
+        toastr()->success('Updated Successfully!');
+
+        return redirect()->back();
+    }
     /**
      * Remove the specified resource from storage.
      */
