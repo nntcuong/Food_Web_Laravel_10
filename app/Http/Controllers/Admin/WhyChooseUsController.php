@@ -6,6 +6,8 @@ use App\DataTables\WhyChooseUsDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SectionTitle;
+use Illuminate\Contracts\View\View;
+
 class WhyChooseUsController extends Controller
 {
     /**
@@ -22,9 +24,9 @@ class WhyChooseUsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create():View
     {
-        //
+        return view('admin.why-choose-us.create');
     }
 
     /**
