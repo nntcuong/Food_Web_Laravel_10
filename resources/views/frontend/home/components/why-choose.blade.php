@@ -13,19 +13,19 @@
             </div>
         </div>
         <div class="row">
-            @foreach ($whyChooseUs as item)
+            @foreach ($whyChooseUs as $item)
             <div class="col-xl-4 col-md-6 col-lg-4">
                 <div class="fp__choose_single">
                     <div class="icon icon_1">
-                        <i class="fas fa-percent"></i>
+                        <i class="{{ $item->icon }}"></i>
                     </div>
                     <div class="text">
-                        <h3>discount voucher</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, debitis expedita .</p>
+                        <h3>{!! $item->title !!}</h3>
+                        <p>{!! $item->short_description !!}</p>
                     </div>
                 </div>
             </div>
-         
+         @endforeach
         </div>
     </div>
 </section>

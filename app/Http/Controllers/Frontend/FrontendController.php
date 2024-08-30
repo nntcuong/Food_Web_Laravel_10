@@ -16,7 +16,7 @@ class FrontendController extends Controller
         $sectionTitles=$this->getSectionTitles();
         $sliders=Slider::where('status',1)->get();
         $whyChooseUs=WhyChooseUs::where('status',1)->get();
-        return view('frontend.home.index',compact('sliders','sectionTitles'));
+        return view('frontend.home.index',compact('sliders','sectionTitles','whyChooseUs'));
     }
     function getSectionTitles():Collection{
         
