@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Routes;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -21,4 +22,5 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
     Route::put('why-choose-title-update',[WhyChooseUsController::class,'updateTitle'])->name('why-choose-title.update');
     Route::resource('why-choose-us',WhyChooseUsController::class);
     Route::resource('category',CategoryController::class);
+    Route::resource('product',ProductController::class);
 });
