@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            {{-- <h1>Products Gallery ({{ $product->name }})</h1> --}}
+            <h1>Products Gallery ({{ $product->name }})</h1>
         </div>
 
         <div>
@@ -21,7 +21,7 @@
                         @csrf
                         <div class="form-group">
                             <input type="file" class="form-control" name="image">
-                            {{-- <input type="hidden" value="{{ $product->id }}" name="product_id"> --}}
+                            <input type="hidden" value="{{ $product->id }}" name="product_id">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Upload</button>
@@ -43,7 +43,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($images as $image)
+                        @foreach ($images as $image)
                         <tr>
                             <td><img width="150px" src="{{ asset($image->image) }}" alt=""></td>
                             <td>
@@ -56,7 +56,7 @@
                             <td colspan='2' class="text-center">No data found!</td>
 
                         </tr>
-                        @endif --}}
+                        @endif
                     </tbody>
                 </table>
             </div>
