@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\SectionTitle;
 use App\Models\WhyChooseUs;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use Illuminate\Support\Collection;
+use Illuminate\Contracts\View\View;
 
 class FrontendController extends Controller
 {
@@ -27,5 +28,13 @@ class FrontendController extends Controller
             'why_choose_main_title',
             'why_choose_sub_title'];
         return SectionTitle::whereIn('key',$keys)->pluck('value','key');
+    }
+    function showProduct(string $slug): View
+    {
+        $product = Product::where(['slug' => $slug, 'status' => 1])->first();
+        if (!$product) {
+            abort(404);
+        }
+        return view('frontend.pages.product-view', compact('product'));
     }
 }
