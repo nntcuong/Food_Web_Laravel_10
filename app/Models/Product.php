@@ -19,4 +19,7 @@ class Product extends Model
     function productSizes():HasMany{
         return $this->hasMany(ProductSize::class);
     }
+    function productOptions():HasMany{
+        return $this->hasMany(ProductOption::class);
+    }
 }

@@ -79,7 +79,7 @@
                                 value="{{ $product->offer_price > 0 ? $product->offer_price : $product->price }}">
                             <input type="hidden" name="product_id" value="{{ $product->id }}">
 
-                            {{-- @if ($product->productSizes()->exists())
+                            @if ($product->productSizes()->exists())
                                 <div class="details_size">
                                     <h5>select size</h5>
 
@@ -96,7 +96,7 @@
                                     @endforeach
 
                                 </div>
-                            @endif --}}
+                            @endif
 
                             {{-- @if ($product->productOptions()->exists())
                                 <div class="details_extra_item">
