@@ -84,8 +84,7 @@
                     <li><a class="nav-link" href="{{ route('admin.product.index') }}">Products</a></li>
                 </ul>
             </li>
-            {{-- <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank
-                        Page</span></a></li> --}}
+            <li><a class="nav-link" href="{{ route('admin.setting.index') }}"><i class="far fa-square"></i> <span>Setting</span></a></li>
 
             {{-- <span>Credits</span></a></li> --}}
         </ul>

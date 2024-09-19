@@ -2,7 +2,7 @@
     <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-body">
+                {{-- <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                             class="fal fa-times"></i></button>
                     <div class="fp__cart_popup_img">
@@ -76,7 +76,7 @@
                             <li><a class="common_btn" href="#">add to cart</a></li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

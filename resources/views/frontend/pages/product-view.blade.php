@@ -98,7 +98,7 @@
                                 </div>
                             @endif
 
-                            {{-- @if ($product->productOptions()->exists())
+                            @if ($product->productOptions()->exists())
                                 <div class="details_extra_item">
                                     <h5>select option <span>(optional)</span></h5>
                                     @foreach ($product->productOptions as $productOption)
@@ -113,7 +113,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                            @endif --}}
+                            @endif
 
                             <div class="details_quentity">
                                 <h5>select quentity</h5>
@@ -246,7 +246,7 @@
                 </div>
             </div>
 
-            {{-- @if (count($relatedProducts) > 0)
+            @if (count($relatedProducts) > 0)
                 <div class="fp__related_menu mt_90 xs_mt_60">
                     <h2>related item</h2>
                     <div class="row related_product_slider">
@@ -292,7 +292,7 @@
 
                     </div>
                 </div>
-            @endif --}}
+            @endif
         </div>
     </section>
 @endsection

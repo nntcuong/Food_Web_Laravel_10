@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\ProfileController;
@@ -33,4 +34,9 @@ Route::group(['middleware'=>'auth'],function(){
 });
 Route::get('/',[FrontendController::class,'index'])->name('home');
 Route::Get('/product/{slug}',[FrontendController::class,'showProduct'])->name('product.show');
+Route::get('/load-product-modal/{productId}', [FrontendController::class, 'loadProductModal'])->name('load-product-modal');
+
+Route::post('add-to-cart',[CartController::class,'addToCart'])->name('add-to-cart');
+
+Route::get('get-cart-products', [CartController::class, 'getCartProduct'])->name('get-cart-products');
 require __DIR__.'/auth.php';
