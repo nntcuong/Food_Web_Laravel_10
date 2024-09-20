@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Cart;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
+
 class CartController extends Controller
 {
     function addToCart(Request $request)
@@ -62,7 +64,7 @@ class CartController extends Controller
         }
     }
 
-    function getCartProduct(): {
+    function getCartProduct(){
         return view('frontend.layouts.ajax-files.sidebar-cart-item')->render();
 
     }

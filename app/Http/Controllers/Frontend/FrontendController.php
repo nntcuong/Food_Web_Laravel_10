@@ -10,7 +10,8 @@ use App\Models\WhyChooseUs;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use Illuminate\Support\Collection;
-use Illuminate\Contracts\View\View;
+
+use Illuminate\View\View;
 
 class FrontendController extends Controller
 {
