@@ -26,7 +26,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
     Route::put('why-choose-title-update',[WhyChooseUsController::class,'updateTitle'])->name('why-choose-title.update');
     Route::resource('why-choose-us',WhyChooseUsController::class);
     Route::resource('category',CategoryController::class);
-    Route::resource('product',ProductController::class);
+    Route::resource('product', ProductController::class);
     Route::get('product-gallery/{product}', [ProductGalleryController::class, 'index'])->name('product-gallery.show-index');
     Route::resource('product-gallery',ProductGalleryController::class);
 

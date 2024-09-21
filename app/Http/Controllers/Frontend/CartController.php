@@ -9,9 +9,12 @@ use Cart;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
-
+use Illuminate\Http\Response;
 class CartController extends Controller
 {
+    function index() : View {
+        return view('frontend.pages.cart-view');
+    }
     function addToCart(Request $request)
     {
         $product = Product::with(['productSizes', 'productOptions'])->findOrFail($request->product_id);
@@ -64,8 +67,51 @@ class CartController extends Controller
         }
     }
 
-    function getCartProduct(){
+    function getCartProduct() {
         return view('frontend.layouts.ajax-files.sidebar-cart-item')->render();
-
     }
+    function cartProductRemove($rowId) {
+        try {
+            Cart::remove($rowId);
+            return response([
+                'status' => 'success',
+                'message' => 'Item has been removed!',
+                // 'cart_total' => cartTotal(),
+                // 'grand_cart_total' => grandCartTotal()
+            ], 200);
+        }catch(\Exception $e){
+            return response(['status' => 'error', 'message' => 'Sorry something went wrong!'], 500);
+        }
+    }
+    function cartQtyUpdate(Request $request) : Response {
+        $cartItem = Cart::get($request->rowId);
+        $product = Product::findOrFail($cartItem->id);
+
+        if($product->quantity < $request->qty){
+            return response(['status' => 'error', 'message' => 'Quantity is not available!', 'qty' => $cartItem->qty]);
+        }
+
+        try{
+            $cart = Cart::update($request->rowId, $request->qty);
+            return response([
+                'status' => 'success',
+                // 'product_total' => productTotal($request->rowId),
+                'qty' => $cart->qty,
+                'cart_total' => cartTotal()
+                // 'grand_cart_total' => grandCartTotal()
+            ], 200);
+
+        }catch(\Exception $e){
+            logger($e);
+            return response(['status' => 'error', 'message' => 'Something went wrong please reload the page.'], 500);
+        }
+    }
+
+    function cartDestroy() {
+        Cart::destroy();
+        session()->forget('coupon');
+        return redirect()->back();
+    }
+    
+    
 }

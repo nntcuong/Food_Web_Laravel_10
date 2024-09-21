@@ -8,7 +8,7 @@
 
     <div class="card card-primary">
         <div class="card-header">
-            <h4>Create Product</h4>
+            <h4>Create Procut</h4>
 
         </div>
         <div class="card-body">
