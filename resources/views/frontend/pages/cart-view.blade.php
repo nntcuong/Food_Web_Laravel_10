@@ -92,10 +92,10 @@
                                                 </div>
                                             </td>
 
-                                            {{-- <td class="fp__pro_tk">
+                                            <td class="fp__pro_tk">
                                                 <h6 class="produt_cart_total">
-                                                    {{ currencyPosition(productTotal($product->rowId)) }}</h6>
-                                            </td> --}}
+                                                    {{ currencyPosition(cartTotal())}}</h6>
+                                            </td>
 
                                             <td class="fp__pro_icon">
                                                 <a href="#" class="reomove_cart_product"

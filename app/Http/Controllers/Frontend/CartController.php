@@ -95,7 +95,7 @@ class CartController extends Controller
             $cart = Cart::update($request->rowId, $request->qty);
             return response([
                 'status' => 'success',
-                // 'product_total' => productTotal($request->rowId),
+            //  'product_total' => productTotal($request->rowId),
                 'qty' => $cart->qty,
                 'cart_total' => cartTotal()
                 // 'grand_cart_total' => grandCartTotal()
@@ -111,6 +111,16 @@ class CartController extends Controller
         Cart::destroy();
         session()->forget('coupon');
         return redirect()->back();
+    }
+    function destroyCoupon(){
+        try{
+
+            session()->forget('coupon');
+            return response(['message'=>'Coupon Removed','grand_cart_total'=>grandCartTotal()]);
+        }catch(\Exception $e){
+            return response(['message'=>'Something went wrong','grand_cart_total'=>grandCartTotal()]);
+
+        }
     }
     
     
