@@ -4,11 +4,13 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CouponController;
 use App\Http\Controllers\Admin\DeliveryAreaController;
+use App\Http\Controllers\Admin\PaymentGatewaySettingController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductGalleryController;
 use App\Http\Controllers\Admin\ProductOptionController;
 use App\Http\Controllers\Admin\ProductSizeController;
 use App\Http\Controllers\Admin\SettingController;
+
 use Illuminate\Support\Facades\Routes;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -40,6 +42,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
 
     Route::resource('coupon', CouponController::class);
     Route::resource('delivery-area', DeliveryAreaController::class);
+
+    Route::get('/payment-gateway-setting', [PaymentGatewaySettingController::class, 'index'])->name('payment-setting.index');
+    Route::put('/paypal-setting', [PaymentGatewaySettingController::class, 'paypalSettingUpdate'])->name('paypal-setting.update');
+
     Route::get('/setting',[SettingController::class, 'index'])->name('setting.index');
     Route::get('/general-setting',[SettingController::class, 'UpdateGeneralSetting'])->name('general-setting.update');
 

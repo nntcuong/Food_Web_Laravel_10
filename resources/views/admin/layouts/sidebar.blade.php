@@ -90,6 +90,8 @@
                 <ul class="dropdown-menu">
                     <li class="" ><a class="nav-link" href="{{ route('admin.coupon.index') }}">Coupon</a></li>
                     <li class="{" ><a class="nav-link" href="{{ route('admin.delivery-area.index') }}">Delivery Areas</a></li>
+                    <li class="{" ><a class="nav-link" href="{{ route('admin.payment-setting.index') }}">Payment Getway</a></li>
+
                 </ul>
             </li>
             <li><a class="nav-link" href="{{ route('admin.setting.index') }}"><i class="far fa-square"></i> <span>Setting</span></a></li>

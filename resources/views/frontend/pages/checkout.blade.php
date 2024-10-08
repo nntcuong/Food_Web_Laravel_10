@@ -215,7 +215,36 @@
                 })
             })
 
-            
+            $('#procced_pmt_button').on('click', function(e){
+                e.preventDefault();
+                let address = $('.v_address:checked');
+                let id = address.val();
+                if(address.length === 0){
+                    toastr.error('Please Select a Address!');
+                    return;
+                }
+
+                $.ajax({
+                    method: 'Post',
+                    url: '{{ route("checkout.redirect") }}',
+                    data: {
+                        id: id
+                    },
+                    beforeSend: function() {
+                        showLoader()
+                    },
+                    success: function(response) {
+                        window.location.href = response.redirect_url;
+                    },
+                    error: function(xhr, status, error){
+                        let errorMessage = xhr.responseJSON.message;
+                        toastr.success(errorMessage);
+                    },
+                    complete: function() {
+                        hideLoader()
+                    }
+                })
+            })
         })
     </script>
 @endpush
