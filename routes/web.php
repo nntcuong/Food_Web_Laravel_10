@@ -58,10 +58,16 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout.index');
     Route::get('checkout/{id}/delivery-cal', [CheckoutController::class, 'CalculateDeliveryCharge'])->name('checkout.delivery-cal');
     Route::post('checkout', [CheckoutController::class, 'checkoutRedirect'])->name('checkout.redirect');
+
     Route::get('payment',[PaymentController::class, 'index'])->name('payment.index');
     Route::post('make-payment', [PaymentController::class, 'makePayment'])->name('make-payment');
 
     Route::get('payment-success', [PaymentController::class, 'paymentSuccess'])->name('payment.success');
     Route::get('payment-cancel', [PaymentController::class, 'paymentCancel'])->name('payment.cancel');
+
+    Route::get('paypal/payment', [PaymentController::class, 'payWithPaypal'])->name('paypal.payment');
+    Route::get('paypal/success', [PaymentController::class, 'paypalSuccess'])->name('paypal.success');
+    Route::get('paypal/cancel', [PaymentController::class, 'paypalCancel'])->name('paypal.cancel');
+
 });
 require __DIR__.'/auth.php';
