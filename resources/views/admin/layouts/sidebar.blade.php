@@ -78,6 +78,20 @@
 
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Orders</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.orders.index') }}">All Order</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.pending-orders') }}">Pending Orders</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.inprocess-orders') }}">In Process Orders</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.delivered-orders') }}">Delivered Orders</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.declined-orders') }}">Decliend Orders</a></li>
+
+
+
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Manager Restaurant</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.category.index') }}">Product Categories</a></li>
@@ -88,13 +102,16 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Manager Ecommerce</span></a>
                 <ul class="dropdown-menu">
-                    <li class="" ><a class="nav-link" href="{{ route('admin.coupon.index') }}">Coupon</a></li>
-                    <li class="{" ><a class="nav-link" href="{{ route('admin.delivery-area.index') }}">Delivery Areas</a></li>
-                    <li class="{" ><a class="nav-link" href="{{ route('admin.payment-setting.index') }}">Payment Getway</a></li>
+                    <li class=""><a class="nav-link" href="{{ route('admin.coupon.index') }}">Coupon</a></li>
+                    <li class="{"><a class="nav-link" href="{{ route('admin.delivery-area.index') }}">Delivery
+                            Areas</a></li>
+                    <li class="{"><a class="nav-link" href="{{ route('admin.payment-setting.index') }}">Payment
+                            Getway</a></li>
 
                 </ul>
             </li>
-            <li><a class="nav-link" href="{{ route('admin.setting.index') }}"><i class="far fa-square"></i> <span>Setting</span></a></li>
+            <li><a class="nav-link" href="{{ route('admin.setting.index') }}"><i class="far fa-square"></i>
+                    <span>Setting</span></a></li>
 
             {{-- <span>Credits</span></a></li> --}}
         </ul>
