@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use Illuminate\Database\Eloquent\Relations\HasMany;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -42,4 +42,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    function chats(): HasMany {
+        return $this->hasMany(Chat::class, 'sender_id', 'id')
+            ->orWhere('receiver_id', $this->id);
+    }
+
+    function orders() : HasMany {
+        return $this->hasMany(Order::class, 'user_id', 'id');
+    }
 }

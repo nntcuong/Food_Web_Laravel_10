@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Events\OrderPaymentUpdateEvent;
+use App\Events\OrderPlacedNotificationEvent;
+use App\Events\RTOrderPlacedNotificationEvent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\ChatController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\DashboardController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -37,6 +38,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::put('address/{id}/edit', [DashboardController::class, 'updateAddress'])->name('address.update');
     Route::delete('address/{id}', [DashboardController::class, 'destroyAddress'])->name('address.destroy');
 
+
+    Route::post('chat/send-message', [ChatController::class, 'sendMessage'])->name('chat.send-message');
+    Route::get('chat/get-conversation/{senderId}',[ChatController::class, 'getConversation'])->name('chat.get-conversation');
 });
 Route::get('/',[FrontendController::class,'index'])->name('home');
 Route::Get('/product/{slug}',[FrontendController::class,'showProduct'])->name('product.show');
