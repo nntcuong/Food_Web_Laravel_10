@@ -85,14 +85,14 @@
                             @endif
                         </ul>
                     </div>
-                    @php
+                    {{-- @php
                         $socials = \App\Models\SocialLink::where('status', 1)->get();
-                    @endphp
+                    @endphp --}}
                     <div class="col-xl-6 col-md-4 d-none d-md-block">
                         <ul class="topbar_icon d-flex flex-wrap">
-                            @foreach ($socials as $link)
+                            {{-- @foreach ($socials as $link)
                             <li><a href="{{ $link->link }}"><i class="{{ $link->icon }}"></i></a> </li>
-                            @endforeach
+                            @endforeach --}}
 
                         </ul>
                     </div>

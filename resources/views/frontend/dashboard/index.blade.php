@@ -72,15 +72,15 @@
                                     data-bs-target="#v-pills-review" type="button" role="tab"
                                     aria-controls="v-pills-review" aria-selected="false"><span><i
                                             class="fas fa-star"></i></span> Reviews</button>
-                                {{-- @php
+                                @php
                                 $unseenMessages = \App\Models\Chat::where(['sender_id' => 1, 'receiver_id' => auth()->user()->id, 'seen' => 0])->count();
-                                @endphp --}}
+                                @endphp
                                 <button class="nav-link fp_chat_message" id="v-pills-message-tab" data-bs-toggle="pill"
                                 data-bs-target="#v-pills-message" type="button" role="tab"
                                 aria-controls="v-pills-message" aria-selected="false"><span><i
                                 class="far fa-comment-dots"></i></span> Message
-                                {{-- <b class="sunseen-message-count">{{ $unseenMessages > 0 ? 1 : 0 }}</b>
-                                </button> --}}
+                                <b class="sunseen-message-count">{{ $unseenMessages > 0 ? 1 : 0 }}</b>
+                                </button>
 
                                 <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
                                     data-bs-target="#v-pills-settings" type="button" role="tab"
@@ -105,19 +105,17 @@
 
                                 @include('frontend.dashboard.sections.address-section')
 
+                                @include('frontend.dashboard.sections.reservation-section')
+
                                 @include('frontend.dashboard.sections.order-section')
+
                                 @include('frontend.dashboard.sections.message-section')
-                                {{-- @include('frontend.dashboard.sections.reservation-section')
-
-                                @include('frontend.dashboard.sections.order-section')
-
-                              
 
                                 @include('frontend.dashboard.sections.wishlist-section')
 
                                 @include('frontend.dashboard.sections.review-section')
 
-                                @include('frontend.dashboard.change-password') --}}
+                                @include('frontend.dashboard.change-password')
 
                             </div>
                         </div>
