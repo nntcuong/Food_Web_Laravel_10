@@ -12,7 +12,7 @@
                             <th>action</th>
 
                         </tr>
-                        @foreach ($wishlist as $item)
+                        {{-- @foreach ($wishlist as $item)
                         <tr>
                             <td>
                                 <h5>{{ ++$loop->index }}</h5>
@@ -32,7 +32,7 @@
                             </td>
 
                         </tr>
-                        @endforeach
+                        @endforeach --}}
 
                     </tbody>
                 </table>

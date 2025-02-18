@@ -168,8 +168,8 @@
                                     <div class="row">
                                         <div class="col-lg-8">
                                             {{-- <h4>{{ count($reviews) }} reviews</h4> --}}
-                                            {{-- <div class="fp__comment pt-0 mt_20">
-                                                @foreach ($reviews as $review)
+                                            <div class="fp__comment pt-0 mt_20">
+                                                {{-- @foreach ($reviews as $review)
                                                 <div class="fp__single_comment m-0 border-0">
                                                     <img src="{{asset($review->user->avatar)}}" alt="review" class="img-fluid">
                                                     <div class="fp__single_comm_text">
@@ -184,8 +184,8 @@
                                                         <p>{{ $review->review }}</p>
                                                     </div>
                                                 </div>
-                                                @endforeach
-                                                @if ($reviews->hasPages())
+                                                @endforeach --}}
+                                                {{-- @if ($reviews->hasPages())
                                                 <div class="fp__pagination mt_60">
                                                     <div class="row">
                                                         <div class="col-12">
@@ -196,16 +196,16 @@
                                                 @endif
                                                 @if (count($reviews) === 0)
                                                     <div class="alert alert-warning mt-4">No review found!</div>
-                                                @endif
+                                                @endif --}}
 
-                                            </div> --}}
+                                            </div>
 
                                         </div>
                                         @auth
                                         <div class="col-lg-4">
                                             <div class="fp__post_review">
                                                 <h4>write a Review</h4>
-                                                <form action="{{ route('product-review.store') }}" method="POST">
+                                                {{-- <form action="{{ route('product-review.store') }}" method="POST">
                                                     @csrf
                                                     <div class="row">
                                                         <div class="col-xl-12 mt-3">
@@ -229,7 +229,7 @@
                                                                 review</button>
                                                         </div>
                                                     </div>
-                                                </form>
+                                                </form> --}}
                                             </div>
                                         </div>
                                         @else

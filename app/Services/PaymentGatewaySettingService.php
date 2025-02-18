@@ -3,8 +3,8 @@
 namespace App\Services;
 
 use App\Models\PaymentGatewaySetting;
-use Cache;
-
+// use Cache;
+use Illuminate\Support\Facades\Cache;
 class PaymentGatewaySettingService {
 
     function getSettings() {

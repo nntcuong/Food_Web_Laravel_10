@@ -154,5 +154,15 @@ class PaymentController extends Controller
         $this->transactionFailUpdateStatus('PayPal');
         return redirect()->route('payment.cancel');
     }
+    function transactionFailUpdateStatus($gatewayName) : void {
+        $orderId = session()->get('order_id');
+        $paymentInfo = [
+            'transaction_id' => '',
+            'currency' => '',
+            'status' => 'Failed'
+        ];
+
+        OrderPaymentUpdateEvent::dispatch($orderId, $paymentInfo, $gatewayName);
+    }
 
 }

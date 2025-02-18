@@ -113,9 +113,9 @@
 
                                 @include('frontend.dashboard.sections.wishlist-section')
 
-                                @include('frontend.dashboard.sections.review-section')
+                                {{-- @include('frontend.dashboard.sections.review-section') --}}
 
-                                @include('frontend.dashboard.change-password')
+                                {{-- @include('frontend.dashboard.change-password') --}}
 
                             </div>
                         </div>

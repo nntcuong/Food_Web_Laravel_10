@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\RTOrderPlacedNotificationEvent;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 
@@ -73,5 +74,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('paypal/success', [PaymentController::class, 'paypalSuccess'])->name('paypal.success');
     Route::get('paypal/cancel', [PaymentController::class, 'paypalCancel'])->name('paypal.cancel');
 
+    Route::get('test',function (){
+
+        RTOrderPlacedNotificationEvent::dispatch("hello");
+    });
 });
 require __DIR__.'/auth.php';

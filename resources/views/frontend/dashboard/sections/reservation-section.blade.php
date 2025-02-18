@@ -13,7 +13,7 @@
                             <th>Status</th>
 
                         </tr>
-                        @foreach ($reservations as $reservation)
+                        {{-- @foreach ($reservations as $reservation)
                         <tr>
                             <td>
                                 <h5>{{ ++$loop->index }}</h5>
@@ -40,7 +40,7 @@
                             </td>
  
                         </tr>
-                        @endforeach
+                        @endforeach --}}
 
                     </tbody>
                 </table>
