@@ -62,7 +62,7 @@ Step 5: Step 5: Start the Laravel server
 npm run dev or php artisan serve
 
 Step 6: Access the application
-Open a browser and access the following address: http://localhost:4200/
+Open a browser and access the following address: http://localhost:8000/
 
 Step 7: Run MySQL on Laragon and import file food_park.sql into MySQL
 Note: you must start MySQL on Laragon before running the backend
