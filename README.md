@@ -31,10 +31,39 @@ This is a project aimed at building a feature-rich food ordering and restaurant 
 - Admin-User Password Change Option
 - Implementing Product Review & Rating Features
 
-Technology:
+Technologies Used
 - Backend : Laravel (php)
 - Frontend : HTML, CSS, Bootstrap, jQuery Taiwind CSS
 - Database : My SQL
 - Text Editor/IDE : Visual Studio Code
 - Local Server : Laragon
+
+Installation Instructions:
+Before you start, you need to install some of the following software and tools:
+
+- PHP (LTS version recommended)
+- Composer (Node.js Package Manager)
+- Laragon or another MySQL database
+
+Step 1: Clone project from GitHub
+git clone https://github.com/nntcuong/Food_Web_Laravel_10/tree/FullStack 
+
+Step 2: Run VScode
+
+Step 3: Install dependent packages
+copy .env.example
+
+Step 4: run command
+- npm install
+- composer install
+- php artisan migrate
+
+Step 5: Step 5: Start the Laravel server
+npm run dev or php artisan serve
+
+Step 6: Access the application
+Open a browser and access the following address: http://localhost:4200/
+
+Step 7: Run MySQL on Laragon and import file food_park.sql into MySQL
+Note: you must start MySQL on Laragon before running the backend
 
